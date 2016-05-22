@@ -23,10 +23,10 @@ $headers = array("From: noreply@jashleywedding.com",
     "X-Mailer: PHP/" . PHP_VERSION
 );
 // Send it
-mail('john@bagriders.com', 'Wedding RSVP Submission', $message, $headers);
+$result = mail('john@bagriders.com', 'Wedding RSVP Submission', $message, $headers);
 
 
 echo json_encode([
-    'success' => true,
-    'message' => "name {$guestName} song $favoriteSong meal $mealChoiceAndMessage"
+    'success' => $result,
+    'message' => $result ? "Sending mail succeeded!!" : "Sending mail failed :("
 ]);
