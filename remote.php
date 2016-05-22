@@ -18,8 +18,12 @@ Meal Choice / Message: $mealChoiceAndMessage";
 // In case any of our lines are larger than 70 characters, we should use wordwrap()
 $message = wordwrap($message, 70, "\r\n");
 
+$headers = array("From: noreply@jashleywedding.com",
+    "Reply-To: noreply@jashleywedding.com",
+    "X-Mailer: PHP/" . PHP_VERSION
+);
 // Send it
-mail('jon@bagriders.com', 'Wedding RSVP Submission', $message);
+mail('john@bagriders.com', 'Wedding RSVP Submission', $message, $headers);
 
 
 echo json_encode([
